@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/Llane00/llane-weather#readme",
   "dependencies": {
-    "axios": "^0.16.2"
+    "axios": "^0.16.2",
+    "debug": ">=2.6.9"
   }
 }
