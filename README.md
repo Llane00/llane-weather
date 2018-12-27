@@ -13,5 +13,9 @@ npm install -g llane-weather
 
 ```
 weather + 城市拼音
+
+//如：
+
+weather shanghai
 ```
-不加城市拼音默认城市是shanghai
+不加城市参数，默认城市为shanghai
