@@ -13,9 +13,9 @@ data.params = {
   days: 5,
 };
 
-// if(process.argv[2]) {
-//   data.params.location = process.argv[2];
-// }
+if(process.argv[2]) {
+  data.params.location = process.argv[2];
+}
 
 axios.get('https://api.seniverse.com/v3/weather/daily.json', data)
   .then(function (res) {
