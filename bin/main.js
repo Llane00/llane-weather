@@ -58,6 +58,7 @@ if(process.argv[2]) {
 axios.get('https://api.seniverse.com/v3/weather/daily.json', data)
   .then(function (res) {
     var weatherDataArr = res.data.results[0];
+    console.log();
     console.log('city: ' + weatherDataArr.location.name);
     console.log('date: ' + getDataStr());
     console.log();
@@ -66,5 +67,5 @@ axios.get('https://api.seniverse.com/v3/weather/daily.json', data)
     console.log('Have a nice day!');
   })
   .catch(function (error) {
-    console.log(error);
+    console.log(error.response.data.status);
   })
