@@ -23,7 +23,7 @@ weather shanghai
 weather
 ```
 
-If you don't add the info of city, the default city is shanghai.  
+If you don't use the city parameter, the default city is shanghai.  
 不加城市参数，默认城市为shanghai。
 
 You can change the default value in configs.js.  
