@@ -1,5 +1,5 @@
 # llane-weather
-a npm package to get weather forecast
+an npm package to get weather forecast
 
 >一个 可以获取 特定城市天气的 npm
 

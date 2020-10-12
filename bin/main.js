@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 const configs = require("./configs.js");
 
 var axios = require('axios');
@@ -21,7 +22,7 @@ function setConfigValue(requireData, configData) {
 
 function getDataStr() {
   var date = new Date;
-  return date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate();
+  return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
 }
 
 function getWeatherData(currentDataArr) {
@@ -32,14 +33,14 @@ function getWeatherData(currentDataArr) {
 
 function getBorderStr(infoContentlength) {
   var borderStr = ' ';
-  for(var j = 0; j < infoContentlength; j++) {
+  for (var j = 0; j < infoContentlength; j++) {
     borderStr += '-';
   }
   return borderStr;
 }
 
 function renderWeatherData(weatherDataArr) {
-  for(var i = 0; i < weatherDataArr.length; i++) {
+  for (var i = 0; i < weatherDataArr.length; i++) {
     infoContent = getWeatherData(weatherDataArr[i]);
     borderStr = getBorderStr(infoContent.length);
     console.log(borderStr);
@@ -51,7 +52,7 @@ function renderWeatherData(weatherDataArr) {
 
 setConfigValue(data.params, configs);
 
-if(process.argv[2]) {
+if (process.argv[2]) {
   data.params.location = process.argv[2];
 }
 
