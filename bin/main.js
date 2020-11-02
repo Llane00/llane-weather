@@ -58,15 +58,27 @@ if (process.argv[2]) {
 
 axios.get('https://api.seniverse.com/v3/weather/daily.json', data)
   .then(function (res) {
-    var weatherDataArr = res.data.results[0];
-    console.log();
-    console.log('city: ' + weatherDataArr.location.name);
-    console.log('date: ' + getDataStr());
-    console.log();
-    var weatherDataArr = weatherDataArr.daily;
-    renderWeatherData(weatherDataArr);
-    console.log('Have a nice day!');
+    if (res.data && res.data.results && res.data.results[0]) {
+      var weatherDataArr = res.data.results[0];
+      console.log();
+      console.log('city: ' + weatherDataArr.location.name);
+      console.log('date: ' + getDataStr());
+      console.log();
+      var weatherDataArr = weatherDataArr.daily;
+      renderWeatherData(weatherDataArr);
+      console.log('Have a nice day!');
+    } else {
+      console.log('llane-weather:', res.statusText)
+    }
   })
   .catch(function (error) {
-    console.log(error.response.data.status);
+    if (typeof error.response == 'undefined' || typeof error.response.data == 'undefined') {
+      // if (error.code == 'ENOTFOUND') {
+      //   console.log('llane-weather:', 'ERR_INTERNET_DISCONNECTED')
+      // } else {
+        console.log('llane-weather:', error.code || 'unknow error')
+      // }
+    } else {
+      console.log('llane-weather:', error.response.data.status);
+    }
   })
