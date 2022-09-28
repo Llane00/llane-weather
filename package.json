@@ -1,6 +1,6 @@
 {
   "name": "llane-weather",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "description": "get your local weather",
   "main": "index.js",
   "scripts": {
@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/Llane00/llane-weather#readme",
   "dependencies": {
-    "axios": ">=0.18.1"
+    "axios": ">=0.27.2"
   }
 }
