@@ -1,28 +1,31 @@
 #!/usr/bin/env node
 
-const { getWeather, showErrorMsg } = require('./service/base.js')
+const { getWeatherInfo, showErrorMsg } = require('./service/base.js')
 
-function getWeatherData(currentDataArr, index) {
-  var currentWeatherInfo = currentDataArr
-  var infoContent = (index === 0 ? '* ' : '  ') + currentWeatherInfo.date + ' | temperature: ' + currentWeatherInfo.low + ' ~ ' + currentWeatherInfo.high + '℃ | weather: ' + currentWeatherInfo.text_day + ' ~ ' + currentWeatherInfo.text_night
+function getWeatherInfoStr(weatherInfo, index) {
+  var infoContent = `${index === 0 ? '* ' : '  '}${weatherInfo.date} | temperature: ${weatherInfo.low} ~ ${weatherInfo.high} ℃ | weather: ${weatherInfo.text_day} ~ ${weatherInfo.text_night}`
   return infoContent
 }
 
-function renderHeadInfo(weatherData) {
+function renderHeader(weatherData) {
   console.log(weatherData.location.name)
 }
 
-function renderWeatherData(weatherDataArr) {
+function renderMain(weatherDataArr) {
   for (var i = 0; i < weatherDataArr.length; i++) {
-    infoContent = getWeatherData(weatherDataArr[i], i)
+    infoContent = getWeatherInfoStr(weatherDataArr[i], i)
     console.log(infoContent)
   }
 }
 
-function render(weatherData) {
-  renderHeadInfo(weatherData)
-  renderWeatherData(weatherData.daily)
+function renderFooter() {
   console.log('\r\nHave a nice day!')
+}
+
+function render(weatherData) {
+  renderHeader(weatherData)
+  renderMain(weatherData.daily)
+  renderFooter()
 }
 
 function run() {
@@ -31,7 +34,7 @@ function run() {
     data.location = process.argv[2]
   }
 
-  getWeather(data)
+  getWeatherInfo(data)
     .then((res) => {
       if (res.status === 200 && res.data.results && res.data.results[0]) {
         render(res.data.results[0])

@@ -1,7 +1,7 @@
 var axios = require('axios')
 const configs = require('../configs')
 
-function getWeather(data = {}) {
+function getWeatherInfo(data = {}) {
   const defaultParams = {
     key: 'qwwpyhirhh0lvded',
     location: '',
@@ -32,6 +32,6 @@ function showErrorMsg(res) {
 }
 
 module.exports = {
-  getWeather,
+  getWeatherInfo,
   showErrorMsg,
 }
