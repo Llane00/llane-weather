@@ -23,10 +23,12 @@ function getWeatherInfo(data = {}) {
 }
 
 function showErrorMsg(res) {
-  const errorInfo = res.response.data
-  if (errorInfo.status && errorInfo.status_code !== 'AP010003') {
-    console.log('Error:', errorInfo.status)
-    return
+  if (res.response) {
+    const errorInfo = res.response.data
+    if (errorInfo.status && errorInfo.status_code !== 'AP010003') {
+      console.log('Error:', errorInfo.status)
+      return
+    }
   }
   console.log('Sorry: Weather server error.')
 }

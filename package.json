@@ -1,6 +1,6 @@
 {
   "name": "llane-weather",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A terminal tool to get weather information.",
   "main": "index.js",
   "scripts": {

@@ -8,7 +8,9 @@ function getWeatherInfoStr(weatherInfo, index) {
 }
 
 function renderHeader(weatherData) {
+  console.log()
   console.log(weatherData.location.name)
+  console.log()
 }
 
 function renderMain(weatherDataArr) {
